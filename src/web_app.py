@@ -6,14 +6,15 @@ serverPort = 8080
 
 class MyServer(BaseHTTPRequestHandler):
     """
-        Специальный класс, который отвечает за
-        обработку входящих запросов от клиентов
+    Специальный класс, который отвечает за
+    обработку входящих запросов от клиентов
     """
+
     def do_get(self):
         self.send_response(200)
         self.send_header("Content-type", "text/html")
         self.end_headers()
-        with open("../html/contacts.html", 'rb') as f:
+        with open("../html/contacts.html", "rb") as f:
             result = f.read()
         self.wfile.write(result)
 
